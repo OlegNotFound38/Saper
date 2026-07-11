@@ -94,7 +94,19 @@ private:
             bomb_position[i] = new short[2];
 
             for (short j = 0; j < 2; j++){
-                //while (bomb)
+                bomb_position[i][j] = -1;
+            }
+        }
+
+        for (short i = 0; i < bomb_count; i++){
+            bomb_position[i][0] = rand() % field_rows;
+            bomb_position[i][1] = rand() % field_cols;
+            
+            for (short j = 0; j < bomb_count; j++){
+                if ((bomb_position[i][0] == bomb_position[j][0])  && (bomb_position[i][1] == bomb_position[j][1])){
+                    i--;
+                    break;
+                }
             }
         }
     }
@@ -136,7 +148,7 @@ int main(){
 
         short input_row; char input_col;
         cout << endl << endl
-        << "Enter the position if format: ";
+        << "Enter the position if format \"";
         if (input_format){
             cout << "Number Letter" << endl;
             cin >> input_row >> input_col;
@@ -145,7 +157,7 @@ int main(){
             cout << "Letter Number" << endl;
             cin >> input_col >> input_row;
         }
-        cout << endl;
+        cout << "\"\n";
 
 
 
