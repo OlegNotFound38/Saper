@@ -24,6 +24,11 @@ public:
 
     short** bomb_position = nullptr;
 
+    short get_field_size(const bool col){
+        if (col) return field_cols;
+        else return field_rows;
+    }
+
     void set_field_data(){
         cout << "Enter the game field size in format \"a b\": ";
         short rows = 6, cols = 6;
