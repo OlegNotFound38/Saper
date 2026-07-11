@@ -5,7 +5,7 @@
 using namespace std;
 
 template <typename arrType, typename arrSize>
-void cheak_clear_memory(arrType** arr, arrSize size){
+void cheak_clear_memory(arrType** arr, const arrSize size){
     if (arr != nullptr){        
         for (arrSize i = 0; i < size; i++) delete[] *(arr + i);
         delete[] arr;
@@ -19,7 +19,10 @@ class Game_field{
 public:
     ~Game_field(){
         cheak_clear_memory(field, field_rows);
+        cheak_clear_memory(bomb_position, bomb_count);
     }
+
+    short** bomb_position = nullptr;
 
     void set_field_data(){
         cout << "Enter the game field size in format \"a b\": ";
@@ -82,8 +85,19 @@ public:
     
 private:
     short field_rows, field_cols, bomb_count;
-    short** bomb_position = nullptr;
     char** field = nullptr;
+
+    void fill_bomb_positions(){
+        cheak_clear_memory(bomb_position, bomb_count);
+
+        for (short i = 0; i < bomb_count; i++){
+            bomb_position[i] = new short[2];
+
+            for (short j = 0; j < 2; j++){
+                //while (bomb)
+            }
+        }
+    }
 
 };
 
