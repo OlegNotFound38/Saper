@@ -164,7 +164,12 @@ int main(){
         }
         cout << "\"\n";
 
-
+        for (short i = 0; i < 10; i++){
+            for (short j = 0; j < 2; j++){
+                cout << Front.bomb_position[i][j] << " ";
+            }
+            cout << endl;
+        }
 
          
 
